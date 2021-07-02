@@ -266,21 +266,21 @@ export const App = () => {
                 <p>お客様の声</p>
               </div>
               <div className="">
-                <div className="col">
+                <div className="col border-top">
                   <img />
                   <div>ddd</div>{" "}
-                  <div className="row justify-content-betwee">
+                  <div className="row align-items-center justify-content-between">
                     <div className="col">2020</div>
-                    <div className="col">IT</div>
+                    <div className="col text-end">IT</div>
                   </div>
                 </div>
-                <div className="col">
+                <div className="col border-top">
                   <img />
                 </div>
-                <div className="col">
+                <div className="col border-top">
                   <img />
                 </div>
-                <div className="col">
+                <div className="col border-top">
                   <img />
                 </div>
               </div>
