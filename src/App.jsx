@@ -7,6 +7,8 @@ import mindMap from "../public/images/png/mindMap.png";
 import website from "../public/images/png/website.png";
 import data from "../public/images/png/data.png";
 import Bg from "../public/images/jpg/bg.jpg";
+import webIcons from "../public/images/png/WebIcons.png";
+import googleIcons from "../public/images/png/GoogleAppIcons.png";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 
@@ -15,7 +17,7 @@ export const App = () => {
     threshold: 0
   });
 
-  const [toggle, setColor] = useState(false);
+  const [state, setState] = useState();
 
   return (
     <>
@@ -25,18 +27,14 @@ export const App = () => {
           className="fixed-top container-fluid py-1 px-4"
           expand="md"
           style={{
-            backgroundColor: toggle
-              ? "rgba(255, 255, 255, 0.9)"
-              : inView && "rgba(255, 255, 255, 0.5)",
-            boxShadow: (toggle || inView) && "0 3px 6px rgba(0, 0, 0, 0.05)"
+            backgroundColor: (inView || state) && "rgba(255, 255, 255, 0.8)",
+            boxShadow: (inView || state) && "0 3px 6px rgba(0, 0, 0, 0.05)"
           }}
         >
           <Navbar.Brand className="me-auto fs-3" href="#">
             <img src={Logo} alt="logo" width="40" />
             <span
-              className={
-                toggle || inView ? "text-dark ms-2" : "text-light ms-2"
-              }
+              className={inView || state ? "text-dark ms-2" : "text-light ms-2"}
             >
               fueri
             </span>
@@ -46,7 +44,7 @@ export const App = () => {
           </div>
           <Navbar.Toggle
             aria-controls="responsive-navbar-nav"
-            onClick={() => setColor(true)}
+            onClick={() => setState(true)}
           />
           <Navbar.Collapse
             id="responsive-navbar-nav"
@@ -54,12 +52,22 @@ export const App = () => {
           >
             <Nav
               className="text-center align-baseline"
-              style={{ fontSize: "1.1rem" }}
+              style={{
+                fontSize: "1.1rem"
+              }}
             >
               <Nav.Link
                 href="#top"
                 className={
-                  toggle || inView ? "text-dark me-md-4" : "text-light me-md-4"
+                  inView || state ? "text-dark me-md-4" : "text-light me-md-4"
+                }
+                // onMouseOver={() => setState((preState) => setState({...state,onMouse:!preState}))}
+                // onMouseLeave={() => setState((preState) => setState({...state,onMouse:!preState}))}
+                style={
+                  {
+                    // color: setState ? "black" : "white",
+                    // opacity: setState ? "0.7" : "1"
+                  }
                 }
               >
                 トップ
@@ -67,7 +75,7 @@ export const App = () => {
               <Nav.Link
                 href="#service"
                 className={
-                  toggle || inView ? "text-dark me-md-4" : "text-light me-md-4"
+                  inView || state ? "text-dark me-md-4" : "text-light me-md-4"
                 }
               >
                 サービス
@@ -75,7 +83,7 @@ export const App = () => {
               <Nav.Link
                 href="#workFlow"
                 className={
-                  toggle || inView ? "text-dark me-md-4" : "text-light me-md-4"
+                  inView || state ? "text-dark me-md-4" : "text-light me-md-4"
                 }
               >
                 制作の流れ
@@ -83,7 +91,7 @@ export const App = () => {
               <Nav.Link
                 href="#price"
                 className={
-                  toggle || inView ? "text-dark me-md-4" : "text-light me-md-4"
+                  inView || state ? "text-dark me-md-4" : "text-light me-md-4"
                 }
               >
                 料金紹介
@@ -91,7 +99,7 @@ export const App = () => {
               <Nav.Link
                 href="#fAQ"
                 className={
-                  toggle || inView ? "text-dark me-md-4" : "text-light me-md-4"
+                  inView || state ? "text-dark me-md-4" : "text-light me-md-4"
                 }
               >
                 よくある質問
@@ -99,7 +107,7 @@ export const App = () => {
               <Nav.Link
                 href="#profile"
                 className={
-                  toggle || inView ? "text-dark me-md-4" : "text-light me-md-4"
+                  inView || state ? "text-dark me-md-4" : "text-light me-md-4"
                 }
               >
                 プロフィール
@@ -107,7 +115,7 @@ export const App = () => {
               <Nav.Link
                 href=""
                 className={
-                  toggle || inView
+                  inView || state
                     ? "d-block d-md-none text-dark"
                     : "d-block d-md-none text-light"
                 }
@@ -133,12 +141,12 @@ export const App = () => {
             justifyContent: "center"
           }}
         >
-          <div className="">
+          <div>
             <div
               className="fw-bold text-light text-center mb-5"
               style={{ fontSize: "3vmax", textShadow: "black 2px 2px 4px" }}
             >
-              <div className="mb-4">
+              <div className="mb-3">
                 <span>システム開発・ツール開発</span>
               </div>
               <div>
@@ -158,71 +166,122 @@ export const App = () => {
         </div>
       </header>
       <main>
-        <section id="service" ref={ref}>
-          <div style={{ fontWeight: "800" }}>
-            <div className="h2 text-center mt-4 mb-5">
-              <span className="border-bottom border-info border-3">
-                About
-                <br />
-                fueri.
-              </span>
+        {/* About  */}
+        <section id="service">
+          <div className="pb-5" ref={ref}>
+            <div style={{ fontWeight: "800" }}>
+              <div className="h2 text-center mt-4 mb-5">
+                <span className="border-bottom border-info border-3">
+                  About
+                  <br />
+                  fueri.
+                </span>
+              </div>
+              <div className="container text-center text-md-start">
+                <div className="row align-items-center justify-content-center">
+                  <div className="col-md-4">
+                    <p>
+                      fueri（フエリ）ではGoogleのサービスを中心に、
+                      <br />
+                      作業の効率化を図ったシステム/ツールを開発しております。
+                    </p>
+                  </div>
+                  <div className="col-md-4">
+                    <img
+                      className="float-end"
+                      src={mindMap}
+                      alt="mindMap"
+                      style={{ maxWidth: "100%", height: "auto" }}
+                    />
+                  </div>
+                </div>
+                <div className="row align-items-center justify-content-center">
+                  <div className="col-md-4 order-md-1">
+                    <p>
+                      例えば、
+                      <br />
+                      書類作成の自動化 / 商品・予約管理システム
+                      <br />
+                      メールやカレンダーの同期 / データツールの作成等
+                      <br />
+                      あらゆる業務をサポート致します。
+                    </p>
+                  </div>{" "}
+                  <div className="col-md-4 order-md-0">
+                    <img
+                      className="float-start"
+                      src={data}
+                      alt="data"
+                      style={{ maxWidth: "100%", height: "auto" }}
+                    />
+                  </div>
+                </div>
+                <div className="row align-items-center justify-content-center">
+                  <div className="col-md-4">
+                    <p>
+                      その他、
+                      <br />
+                      WebデザインやHTML/CSS/Java Scriptといった
+                      <br />
+                      フロントエンド開発も行っております。
+                    </p>
+                  </div>
+                  <div className="col-md-4">
+                    <img
+                      className="float-end"
+                      src={website}
+                      alt="website"
+                      style={{ maxWidth: "100%", height: "auto" }}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="row container text-center">
+                <img
+                  className="col-md-4"
+                  src={googleIcons}
+                  alt="googleicons"
+                  style={{ maxWidth: "70vw" }}
+                />{" "}
+                <img
+                  className="col-md-4"
+                  src={webIcons}
+                  alt="webicons"
+                  style={{ maxWidth: "70vw" }}
+                />
+              </div>
             </div>
-            <div className="container text-center text-md-start">
-              <div className="row align-items-center justify-content-center">
-                <div className="col-md-4">
-                  <p>
-                    fueri（フエリ）ではGoogleのサービスを中心に、
-                    <br />
-                    作業の効率化を図ったシステム/ツールを開発しております。
-                  </p>
+          </div>
+        </section>
+        {/* お客様の声 */}
+        <section id="Testimonials">
+          <div style={{ backgroundColor: "#0c7743" }}>
+            <div className="container pt-3 text-white">
+              <div className="text-center">
+                <div className="h2" style={{ fontWeight: "800" }}>
+                  <span className="border-bottom border-info border-3">
+                    Testimonials.
+                  </span>
                 </div>
-                <div className="col-md-4">
-                  <img
-                    className="float-end"
-                    src={mindMap}
-                    alt="mindMap"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
-                </div>
+                <p>お客様の声</p>
               </div>
-              <div className="row align-items-center justify-content-center">
-                <div className="col-md-4 order-md-1">
-                  <p>
-                    例えば、
-                    <br />
-                    書類作成の自動化 / 商品・予約管理システム
-                    <br />
-                    メールやカレンダーの同期 / データツールの作成等
-                    <br />
-                    あらゆる業務をサポート致します。
-                  </p>
-                </div>{" "}
-                <div className="col-md-4 order-md-0">
-                  <img
-                    className="float-start"
-                    src={data}
-                    alt="data"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
+              <div className="">
+                <div className="col">
+                  <img />
+                  <div>ddd</div>{" "}
+                  <div className="row justify-content-betwee">
+                    <div className="col">2020</div>
+                    <div className="col">IT</div>
+                  </div>
                 </div>
-              </div>
-              <div className="row align-items-center justify-content-center">
-                <div className="col-md-4">
-                  <p>
-                    その他、
-                    <br />
-                    WebデザインやHTML/CSS/Java Scriptといった
-                    <br />
-                    フロントエンド開発も行っております。
-                  </p>
+                <div className="col">
+                  <img />
                 </div>
-                <div className="col-md-4">
-                  <img
-                    className="float-end"
-                    src={website}
-                    alt="website"
-                    style={{ maxWidth: "100%", height: "auto" }}
-                  />
+                <div className="col">
+                  <img />
+                </div>
+                <div className="col">
+                  <img />
                 </div>
               </div>
             </div>
