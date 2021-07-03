@@ -9,6 +9,7 @@ import data from "../public/images/png/data.png";
 import Bg from "../public/images/jpg/bg.jpg";
 import webIcons from "../public/images/png/WebIcons.png";
 import googleIcons from "../public/images/png/GoogleAppIcons.png";
+import stars from "../public/images/png/5stars.png";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 
@@ -39,7 +40,7 @@ export const App = () => {
               fueri
             </span>
           </Navbar.Brand>
-          <div class="d-block d-md-none me-4">
+          <div className="d-block d-md-none me-4">
             <img src={Mail} alt="mail" width="40" />
           </div>
           <Navbar.Toggle
@@ -256,7 +257,10 @@ export const App = () => {
         {/* お客様の声 */}
         <section id="Testimonials">
           <div style={{ backgroundColor: "#0c7743" }}>
-            <div className="container pt-3 text-white">
+            <div
+              className="container py-5 text-white"
+              style={{ maxWidth: "960px" }}
+            >
               <div className="text-center">
                 <div className="h2" style={{ fontWeight: "800" }}>
                   <span className="border-bottom border-info border-3">
@@ -267,21 +271,92 @@ export const App = () => {
               </div>
               <div className="">
                 <div className="col border-top">
-                  <img />
-                  <div>ddd</div>{" "}
+                  <img src={stars} alt="5stars" width="100" />
+                  <div className="">
+                    <p>
+                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      <br />
+                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      <br />
+                      別シートにかなり丁寧な説明書きも頂き、
+                      <br />
+                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
+                      <br />
+                      社内をGoogleアプリケーションで統一している最中ですので、
+                      <br />
+                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                    </p>
+                  </div>
                   <div className="row align-items-center justify-content-between">
-                    <div className="col">2020</div>
-                    <div className="col text-end">IT</div>
+                    <div className="col">2020年10月1日</div>
+                    <div className="col text-end">IT・通信・インターネット</div>
                   </div>
                 </div>
                 <div className="col border-top">
-                  <img />
+                  <img src={stars} alt="5stars" width="100" />{" "}
+                  <div className="col-md-4">
+                    <p>
+                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      <br />
+                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      <br />
+                      別シートにかなり丁寧な説明書きも頂き、
+                      <br />
+                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
+                      <br />
+                      社内をGoogleアプリケーションで統一している最中ですので、
+                      <br />
+                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                    </p>
+                  </div>{" "}
+                  <div className="row align-items-center justify-content-between">
+                    <div className="col">2020年10月1日</div>
+                    <div className="col text-end">IT・通信・インターネット</div>
+                  </div>
                 </div>
                 <div className="col border-top">
-                  <img />
+                  <img src={stars} alt="5stars" width="100" />{" "}
+                  <div className="col-md-4">
+                    <p>
+                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      <br />
+                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      <br />
+                      別シートにかなり丁寧な説明書きも頂き、
+                      <br />
+                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
+                      <br />
+                      社内をGoogleアプリケーションで統一している最中ですので、
+                      <br />
+                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                    </p>
+                  </div>{" "}
+                  <div className="row align-items-center justify-content-between">
+                    <div className="col">2020年10月1日</div>
+                    <div className="col text-end">IT・通信・インターネット</div>
+                  </div>
                 </div>
                 <div className="col border-top">
-                  <img />
+                  <img src={stars} alt="5stars" width="100" />{" "}
+                  <div className="col-md-4">
+                    <p>
+                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      <br />
+                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      <br />
+                      別シートにかなり丁寧な説明書きも頂き、
+                      <br />
+                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
+                      <br />
+                      社内をGoogleアプリケーションで統一している最中ですので、
+                      <br />
+                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                    </p>
+                  </div>{" "}
+                  <div className="row align-items-center justify-content-between">
+                    <div className="col">2020年10月1日</div>
+                    <div className="col text-end">IT・通信・インターネット</div>
+                  </div>
                 </div>
               </div>
             </div>
