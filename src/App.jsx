@@ -10,6 +10,13 @@ import Bg from "../public/images/jpg/bg.jpg";
 import webIcons from "../public/images/png/WebIcons.png";
 import googleIcons from "../public/images/png/GoogleAppIcons.png";
 import stars from "../public/images/png/5stars.png";
+import Number1 from "../public/images/png/number1.png";
+import Number2 from "../public/images/png/number2.png";
+import Number3 from "../public/images/png/number3.png";
+import Number4 from "../public/images/png/number4.png";
+import Number5 from "../public/images/png/number5.png";
+import Number6 from "../public/images/png/number6.png";
+import Dot from "../public/images/png/dot.png";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 
@@ -256,7 +263,7 @@ export const App = () => {
         </section>
         {/* お客様の声 */}
         <section id="Testimonials">
-          <div style={{ backgroundColor: "#0c7743" }}>
+          <div style={{ backgroundColor: "#00AC5A" }}>
             <div
               className="container py-5 text-white"
               style={{ maxWidth: "960px" }}
@@ -296,73 +303,158 @@ export const App = () => {
                   <img src={stars} alt="5stars" width="100" />{" "}
                   <div className="col-md-4">
                     <p>
-                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      対応から修正まで素早い対応でありがとうございます。
                       <br />
-                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      また何かございましたらお願い致します。
                       <br />
-                      別シートにかなり丁寧な説明書きも頂き、
-                      <br />
-                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
-                      <br />
-                      社内をGoogleアプリケーションで統一している最中ですので、
-                      <br />
-                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                      ありがとうございました。
                     </p>
                   </div>{" "}
                   <div className="row align-items-center justify-content-between">
-                    <div className="col">2020年10月1日</div>
-                    <div className="col text-end">IT・通信・インターネット</div>
+                    <div className="col">2020年12月25日</div>
+                    <div className="col text-end">卸売・小売</div>
                   </div>
                 </div>
                 <div className="col border-top">
                   <img src={stars} alt="5stars" width="100" />{" "}
                   <div className="col-md-4">
                     <p>
-                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      とても丁寧に対応してもらいました。
                       <br />
-                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      顧客の「思い」をくみ取る想像力と提案力に裏打ちされたいい仕事をしていただきました。
                       <br />
-                      別シートにかなり丁寧な説明書きも頂き、
-                      <br />
-                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
-                      <br />
-                      社内をGoogleアプリケーションで統一している最中ですので、
-                      <br />
-                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                      ありがとうございました。
                     </p>
                   </div>{" "}
                   <div className="row align-items-center justify-content-between">
-                    <div className="col">2020年10月1日</div>
-                    <div className="col text-end">IT・通信・インターネット</div>
+                    <div className="col">2020年12月26日</div>
+                    <div className="col text-end">スポーツ・フィットネス</div>
                   </div>
                 </div>
                 <div className="col border-top">
                   <img src={stars} alt="5stars" width="100" />{" "}
                   <div className="col-md-4">
                     <p>
-                      Googleカレンダーを日毎にスプレッドシートに反映させ、
+                      この度も誠にありがとうございました。
                       <br />
-                      会社の日報を自動で作成できるようスクリプトを組んでいただきました。
+                      レスポンスが早く、想像通りのものを作成頂きありがとうございます。
                       <br />
-                      別シートにかなり丁寧な説明書きも頂き、
-                      <br />
-                      もちろんスクリプトも問題なく動作し大満足の仕上がりです。
-                      <br />
-                      社内をGoogleアプリケーションで統一している最中ですので、
-                      <br />
-                      ぜひまた依頼させて頂こうと思います。ありがとうございました。
+                      今後ともよろしくお願いいたします。
                     </p>
                   </div>{" "}
                   <div className="row align-items-center justify-content-between">
-                    <div className="col">2020年10月1日</div>
-                    <div className="col text-end">IT・通信・インターネット</div>
+                    <div className="col">2021年4月23日</div>
+                    <div className="col text-end">卸売・小売</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section id="workFlow"></section>
+        {/* 制作の流れ */}
+        <section id="workFlow">
+          <div style={{ backgroundColor: "#666666" }}>
+            <div className="container py-5 text-white">
+              <div className="text-center">
+                <div className="h2" style={{ fontWeight: "800" }}>
+                  <span className="border-bottom border-info border-3">
+                    Work
+                    <br />
+                    Flow.
+                  </span>
+                </div>
+                <p>制作の流れ</p>
+              </div>
+              <div
+                className="container border border-white p-5"
+                style={{ maxWidth: "1040px" }}
+              >
+                <div className="py-5">
+                  <div className="row align-items-center">
+                    <img className="col-2 col-md-1" src={Number1} alt="No.1" />
+                    <span className="col fw-bold fs-3">お問い合わせ</span>
+                  </div>
+                  <div className="row">
+                    <div className="col-1 col-md-1 py-3 text-center">
+                      ●<br />●<br />●
+                    </div>
+                    <span className="col">
+                      まずはメールフォームにてお気軽にご連絡ください。
+                    </span>
+                  </div>
+                  <div className="row align-items-center">
+                    <img className="col-2 col-md-1" src={Number2} alt="No.2" />
+                    <span className="col fw-bold fs-3">ヒアリング</span>
+                    <div className="row">
+                      <div className="col-1 col-md-1 py-3 text-center">
+                        ●<br />●<br />●
+                      </div>
+                      <span className="col">
+                        作成したい物のイメージなどをお伝え下さい。
+                        <br />
+                        参考資料・サンプルなど御座いますとより一層早く仕上がります。
+                      </span>
+                    </div>
+                  </div>
+                  <div className="row align-items-center">
+                    <img className="col-2 col-md-1" src={Number3} alt="No.3" />
+                    <span className="col fw-bold fs-3">お見積り</span>
+                    <div className="row">
+                      <div className="col-1 col-md-1 py-3 text-center">
+                        ●<br />●<br />●
+                      </div>
+                      <span className="col">
+                        打ち合わせ後、数日以内にお見積りを出させていただきます。
+                      </span>
+                    </div>
+                  </div>
+                  <div className="row align-items-center">
+                    <img className="col-2 col-md-1" src={Number4} alt="No.4" />
+                    <span className="col fw-bold fs-3">作成開始</span>
+                    <div className="row">
+                      <div className="col-1 col-md-1 py-3 text-center">
+                        ●<br />●<br />●
+                      </div>
+                      <span className="col">
+                        作成中のご連絡をスムーズにして頂けると手直しの必要が無くなるなど
+                        <br />
+                        しっかりした物が出来上がります。
+                      </span>
+                    </div>
+                  </div>
+                  <div className="row align-items-center">
+                    <img className="col-2 col-md-1" src={Number5} alt="No.5" />
+                    <span className="col fw-bold fs-3">最終確認</span>
+                    <div className="row">
+                      <div className="col-1 col-md-1 py-3 text-center">
+                        ●<br />●<br />●
+                      </div>
+                      <span className="col">
+                        出来上がった物を実際に触っていただき、
+                        <br />
+                        修正箇所や追加の発注が御座いましたらお気軽にお申し付け下さい。
+                      </span>
+                    </div>
+                  </div>
+                  <div className="row align-items-center">
+                    <img className="col-2 col-md-1" src={Number6} alt="No.6" />
+                    <span className="col fw-bold fs-3">完了(納品)</span>
+                    <div className="row">
+                      <div className="col-1 col-md-1 py-3 text-center"></div>
+                      <span className="col">
+                        ご依頼終了後でもご質問・ご相談等ありましたらお気軽にご連絡ください。
+                        <br />
+                        ※納品後1ヶ月間は無料で手直しをしております。
+                        <br />
+                        ※追加の修正の場合は別途のご依頼となり追加料金を頂く場合があります。
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="price"></section>
         <section id="fAQ"></section>
         <section id="profile"></section>
