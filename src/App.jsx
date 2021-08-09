@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Nav, Button, Card, CardGroup } from "react-bootstrap";
+import { Navbar, Nav, Button, Card, CardGroup, Fade } from "react-bootstrap";
+import { Transition } from "react-transition-group";
+import { Reveal, Animation } from "react-genie";
 import "./styles.css";
 import Logo from "../public/images/png/logo.png";
 import Logo2 from "../public/images/png/logo2.png";
@@ -24,6 +26,14 @@ import { useState } from "react";
 
 export const App = () => {
   const [ref, inView] = useInView({
+    threshold: 1,
+    triggerOnce: true
+  });
+
+  const transitionStyle = {};
+
+  // navbar用
+  const [ref2, inView2] = useInView({
     threshold: 1
   });
 
@@ -40,23 +50,23 @@ export const App = () => {
           className="fixed-top container-fluid py-1 px-4 m-0"
           expand="md"
           style={{
-            // backgroundColor: (!inView || state) && "rgba(255, 255, 255, 0.8)",
-            backgroundColor: (!inView || state) && "rgba(255, 255, 255, 0.4)",
-            // boxShadow: (!inView || state) && "0 3px 6px rgba(0, 0, 0, 0.05)"
-            boxShadow: (!inView || state) && "0 3px 6px rgba(0, 0, 0, 0.05)"
-            // filter: (!inView || state) && "blur(1px)"
+            // backgroundColor: (!inView2 || state) && "rgba(255, 255, 255, 0.8)",
+            backgroundColor: (!inView2 || state) && "rgba(255, 255, 255, 0.8)",
+            // boxShadow: (!inView2 || state) && "0 3px 6px rgba(0, 0, 0, 0.05)"
+            boxShadow: (!inView2 || state) && "0 3px 6px rgba(0, 0, 0, 0.05)"
+            // filter: (!inView2 || state) && "blur(1px)"
           }}
         >
           <Navbar.Brand className="me-auto" href="#">
             <div className="d-none d-md-block fs-3">
               <img src={Logo} alt="logo" width="40" />
               <span
-                // className={!inView || state ? "text-dark ms-2" : "text-light ms-2"}
-                // className={!inView || state ? "text-black-50 ms-2" : "text-white-50 ms-2"}
+                // className={!inView2 || state ? "text-dark ms-2" : "text-light ms-2"}
+                // className={!inView2 || state ? "text-black-50 ms-2" : "text-white-50 ms-2"}
                 className={"ms-3"}
                 style={{
                   letterSpacing: "7px",
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 fueri
@@ -91,7 +101,7 @@ export const App = () => {
                 className={"me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
                 // onMouseOver={() => setState((preState) => setState({...state,onMouse:!preState}))}
                 // onMouseLeave={() => setState((preState) => setState({...state,onMouse:!preState}))}
@@ -109,7 +119,7 @@ export const App = () => {
                 className={"me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 サービス
@@ -119,7 +129,7 @@ export const App = () => {
                 className={"me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 制作の流れ
@@ -129,17 +139,17 @@ export const App = () => {
                 className={"me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 料金紹介
-              </Nav.Link>{" "}
+              </Nav.Link>
               <Nav.Link
                 href="#fAQ"
                 className={"me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 よくある質問
@@ -149,7 +159,7 @@ export const App = () => {
                 className={"me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 プロフィール
@@ -159,7 +169,7 @@ export const App = () => {
                 className={"d-block d-md-none me-md-4"}
                 style={{
                   letterSpacing: spacing,
-                  color: !inView || state ? navFontBlack : navFontWhite
+                  color: !inView2 || state ? navFontBlack : navFontWhite
                 }}
               >
                 お問い合わせ
@@ -182,7 +192,7 @@ export const App = () => {
             alignItems: "center",
             justifyContent: "center"
           }}
-          ref={ref}
+          ref={ref2}
         >
           <div>
             <div
@@ -228,33 +238,44 @@ export const App = () => {
               <div className="container text-center text-md-start">
                 <div className="row align-items-center justify-content-center">
                   <div className="col-md-4">
-                    <p>
-                      fueri（フエリ）ではGoogleのサービスを中心に、
-                      <br />
-                      作業の効率化を図ったシステム/ツールを開発しております。
-                    </p>
+                    <Fade in={inView}>
+                      <p ref={ref}>
+                        fueri（フエリ）ではGoogleのサービスを中心に、
+                        <br />
+                        作業の効率化を図ったシステム/ツールを開発しております。
+                      </p>
+                    </Fade>
                   </div>
                   <div className="col-md-4">
-                    <img
-                      className="float-end"
-                      src={mindMap}
-                      alt="mindMap"
-                      style={{ maxWidth: "100%", height: "auto" }}
-                    />
+                    <Transition in={inView} timeout={550}>
+                      <img
+                        ref={ref}
+                        className="float-end"
+                        src={mindMap}
+                        alt="mindMap"
+                        style={{
+                          maxWidth: "100%",
+                          height: "auto"
+                          // opacity: inView ? 1 : 0
+                        }}
+                      />
+                    </Transition>
                   </div>
                 </div>
                 <div className="row align-items-center justify-content-center">
                   <div className="col-md-4 order-md-1">
-                    <p>
-                      例えば、
-                      <br />
-                      書類作成の自動化 / 商品・予約管理システム
-                      <br />
-                      メールやカレンダーの同期 / データツールの作成等
-                      <br />
-                      あらゆる業務をサポート致します。
-                    </p>
-                  </div>{" "}
+                    <Fade in={inView}>
+                      <p ref={ref}>
+                        例えば、
+                        <br />
+                        書類作成の自動化 / 商品・予約管理システム
+                        <br />
+                        メールやカレンダーの同期 / データツールの作成等
+                        <br />
+                        あらゆる業務をサポート致します。
+                      </p>
+                    </Fade>
+                  </div>
                   <div className="col-md-4 order-md-0">
                     <img
                       className="float-start"
@@ -266,13 +287,15 @@ export const App = () => {
                 </div>
                 <div className="row align-items-center justify-content-center">
                   <div className="col-md-4">
-                    <p>
-                      その他、
-                      <br />
-                      WebデザインやHTML/CSS/Java Scriptといった
-                      <br />
-                      フロントエンド開発も行っております。
-                    </p>
+                    <Fade in={inView}>
+                      <p ref={ref}>
+                        その他、
+                        <br />
+                        WebデザインやHTML/CSS/Java Scriptといった
+                        <br />
+                        フロントエンド開発も行っております。
+                      </p>
+                    </Fade>
                   </div>
                   <div className="col-md-4">
                     <img
@@ -289,7 +312,7 @@ export const App = () => {
                     src={googleIcons}
                     alt="googleicons"
                     style={{ maxWidth: "70vw" }}
-                  />{" "}
+                  />
                   <img
                     className="col-md-4"
                     src={webIcons}
